@@ -73,7 +73,6 @@
 
 #define MAX_LEDS 4
 
-
 /* PS/3 Motion controller */
 static u8 motion_rdesc[] = {
 	0x05, 0x01,         /*  Usage Page (Desktop),               */
@@ -332,6 +331,97 @@ static const unsigned int buzz_keymap[] = {
 	[19] = BTN_TRIGGER_HAPPY19,
 	[20] = BTN_TRIGGER_HAPPY20,
 };
+ 
+/* The Navigation controller is a partial DS3 and uses the same HID report
+ * and hence the same keymap indices, however not not all axes/buttons
+ * are physically present. We use the same axis and button mapping as
+ * the DS3, which uses the Linux gamepad spec.
+ */
+static const unsigned int navigation_absmap[] = {
+	[0x30] = ABS_X,
+	[0x31] = ABS_Y,
+	[0x33] = ABS_Z, /* L2 */
+};
+
+/* Buttons not physically available on the device, but still available
+ * in the reports are explicitly set to 0 for documentation purposes.
+ */
+static const unsigned int navigation_keymap[] = {
+	[0x01] = 0, /* Select */
+	[0x02] = BTN_THUMBL, /* L3 */
+	[0x03] = 0, /* R3 */
+	[0x04] = 0, /* Start */
+	[0x05] = BTN_DPAD_UP, /* Up */
+	[0x06] = BTN_DPAD_RIGHT, /* Right */
+	[0x07] = BTN_DPAD_DOWN, /* Down */
+	[0x08] = BTN_DPAD_LEFT, /* Left */
+	[0x09] = BTN_TL2, /* L2 */
+	[0x0a] = 0, /* R2 */
+	[0x0b] = BTN_TL, /* L1 */
+	[0x0c] = 0, /* R1 */
+	[0x0d] = BTN_NORTH, /* Triangle */
+	[0x0e] = BTN_EAST, /* Circle */
+	[0x0f] = BTN_SOUTH, /* Cross */
+	[0x10] = BTN_WEST, /* Square */
+	[0x11] = BTN_MODE, /* PS */
+};
+
+static const unsigned int sixaxis_absmap[] = {
+	[0x30] = ABS_X,
+	[0x31] = ABS_Y,
+	[0x32] = ABS_RX, /* right stick X */
+	[0x35] = ABS_RY, /* right stick Y */
+};
+
+static const unsigned int sixaxis_keymap[] = {
+	[0x01] = BTN_SELECT, /* Select */
+	[0x02] = BTN_THUMBL, /* L3 */
+	[0x03] = BTN_THUMBR, /* R3 */
+	[0x04] = BTN_START, /* Start */
+	[0x05] = BTN_DPAD_UP, /* Up */
+	[0x06] = BTN_DPAD_RIGHT, /* Right */
+	[0x07] = BTN_DPAD_DOWN, /* Down */
+	[0x08] = BTN_DPAD_LEFT, /* Left */
+	[0x09] = BTN_TL2, /* L2 */
+	[0x0a] = BTN_TR2, /* R2 */
+	[0x0b] = BTN_TL, /* L1 */
+	[0x0c] = BTN_TR, /* R1 */
+	[0x0d] = BTN_NORTH, /* Triangle */
+	[0x0e] = BTN_EAST, /* Circle */
+	[0x0f] = BTN_SOUTH, /* Cross */
+	[0x10] = BTN_WEST, /* Square */
+	[0x11] = BTN_MODE, /* PS */
+};
+
+static const unsigned int ds4_absmap[] = {
+	[0x30] = ABS_X,
+	[0x31] = ABS_Y,
+	[0x32] = ABS_RX, /* right stick X */
+	[0x33] = ABS_Z, /* L2 */
+	[0x34] = ABS_RZ, /* R2 */
+	[0x35] = ABS_RY, /* right stick Y */
+};
+
+static const unsigned int ds4_keymap[] = {
+	[0x1] = BTN_WEST, /* Square */
+	[0x2] = BTN_SOUTH, /* Cross */
+	[0x3] = BTN_EAST, /* Circle */
+	[0x4] = BTN_NORTH, /* Triangle */
+	[0x5] = BTN_TL, /* L1 */
+	[0x6] = BTN_TR, /* R1 */
+	[0x7] = BTN_TL2, /* L2 */
+	[0x8] = BTN_TR2, /* R2 */
+	[0x9] = BTN_SELECT, /* Share */
+	[0xa] = BTN_START, /* Options */
+	[0xb] = BTN_THUMBL, /* L3 */
+	[0xc] = BTN_THUMBR, /* R3 */
+	[0xd] = BTN_MODE, /* PS */
+};
+
+static const struct {int x; int y; } ds4_hat_mapping[] = {
+	{0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1},
+	{0, 0}
+};
 
 /* The Navigation controller is a partial DS3 and uses the same HID report
  * and hence the same keymap indices, however not not all axes/buttons
@@ -503,6 +593,30 @@ struct motion_output_report_02 {
 static DEFINE_SPINLOCK(sony_dev_list_lock);
 static LIST_HEAD(sony_device_list);
 static DEFINE_IDA(sony_device_id_allocator);
+ 
+/* Used for calibration of DS4 accelerometer and gyro. */
+struct ds4_calibration_data {
+	int abs_code;
+	short bias;
+	/* Calibration requires scaling against a sensitivity value, which is a
+	 * float. Store sensitivity as a fraction to limit floating point
+	 * calculations until final calibration.
+	 */
+	int sens_numer;
+	int sens_denom;
+};
+
+enum ds4_dongle_state {
+	DONGLE_DISCONNECTED,
+	DONGLE_CALIBRATING,
+	DONGLE_CONNECTED,
+	DONGLE_DISABLED
+};
+
+enum sony_worker {
+	SONY_WORKER_STATE,
+	SONY_WORKER_HOTPLUG
+};
 
 /* Used for calibration of DS4 accelerometer and gyro. */
 struct ds4_calibration_data {
@@ -1611,7 +1725,6 @@ err_stop:
 	kfree(buf);
 	return ret;
 }
-
 static void dualshock4_calibration_work(struct work_struct *work)
 {
 	struct sony_sc *sc = container_of(work, struct sony_sc, hotplug_worker);
@@ -2714,6 +2827,217 @@ err_stop:
 	return ret;
 }
 
+
+static int sony_input_configured(struct hid_device *hdev,
+					struct hid_input *hidinput)
+{
+	struct sony_sc *sc = hid_get_drvdata(hdev);
+	int append_dev_id;
+	int ret;
+
+	ret = sony_set_device_id(sc);
+	if (ret < 0) {
+		hid_err(hdev, "failed to allocate the device id\n");
+		goto err_stop;
+	}
+
+	ret = append_dev_id = sony_check_add(sc);
+	if (ret < 0)
+		goto err_stop;
+
+	ret = sony_allocate_output_report(sc);
+	if (ret < 0) {
+		hid_err(hdev, "failed to allocate the output report buffer\n");
+		goto err_stop;
+	}
+
+	if (sc->quirks & NAVIGATION_CONTROLLER_USB) {
+		/*
+		 * The Sony Sixaxis does not handle HID Output Reports on the
+		 * Interrupt EP like it could, so we need to force HID Output
+		 * Reports to use HID_REQ_SET_REPORT on the Control EP.
+		 *
+		 * There is also another issue about HID Output Reports via USB,
+		 * the Sixaxis does not want the report_id as part of the data
+		 * packet, so we have to discard buf[0] when sending the actual
+		 * control message, even for numbered reports, humpf!
+		 *
+		 * Additionally, the Sixaxis on USB isn't properly initialized
+		 * until the PS logo button is pressed and as such won't retain
+		 * any state set by an output report, so the initial
+		 * configuration report is deferred until the first input
+		 * report arrives.
+		 */
+		hdev->quirks |= HID_QUIRK_NO_OUTPUT_REPORTS_ON_INTR_EP;
+		hdev->quirks |= HID_QUIRK_SKIP_OUTPUT_REPORT_ID;
+		sc->defer_initialization = 1;
+
+		ret = sixaxis_set_operational_usb(hdev);
+		if (ret < 0) {
+			hid_err(hdev, "Failed to set controller into operational mode\n");
+			goto err_stop;
+		}
+
+		sony_init_output_report(sc, sixaxis_send_output_report);
+	} else if (sc->quirks & NAVIGATION_CONTROLLER_BT) {
+		/*
+		 * The Navigation controller wants output reports sent on the ctrl
+		 * endpoint when connected via Bluetooth.
+		 */
+		hdev->quirks |= HID_QUIRK_NO_OUTPUT_REPORTS_ON_INTR_EP;
+
+		ret = sixaxis_set_operational_bt(hdev);
+		if (ret < 0) {
+			hid_err(hdev, "Failed to set controller into operational mode\n");
+			goto err_stop;
+		}
+
+		sony_init_output_report(sc, sixaxis_send_output_report);
+	} else if (sc->quirks & SIXAXIS_CONTROLLER_USB) {
+		/*
+		 * The Sony Sixaxis does not handle HID Output Reports on the
+		 * Interrupt EP and the device only becomes active when the
+		 * PS button is pressed. See comment for Navigation controller
+		 * above for more details.
+		 */
+		hdev->quirks |= HID_QUIRK_NO_OUTPUT_REPORTS_ON_INTR_EP;
+		hdev->quirks |= HID_QUIRK_SKIP_OUTPUT_REPORT_ID;
+		sc->defer_initialization = 1;
+
+		ret = sixaxis_set_operational_usb(hdev);
+		if (ret < 0) {
+			hid_err(hdev, "Failed to set controller into operational mode\n");
+			goto err_stop;
+		}
+
+		ret = sony_register_sensors(sc);
+		if (ret) {
+			hid_err(sc->hdev,
+			"Unable to initialize motion sensors: %d\n", ret);
+			goto err_stop;
+		}
+
+		sony_init_output_report(sc, sixaxis_send_output_report);
+	} else if (sc->quirks & SIXAXIS_CONTROLLER_BT) {
+		/*
+		 * The Sixaxis wants output reports sent on the ctrl endpoint
+		 * when connected via Bluetooth.
+		 */
+		hdev->quirks |= HID_QUIRK_NO_OUTPUT_REPORTS_ON_INTR_EP;
+		
+		ret = sixaxis_set_operational_bt(hdev);
+		if (ret < 0) {
+			hid_err(hdev, "Failed to set controller into operational mode\n");
+			goto err_stop;
+		}
+
+		ret = sony_register_sensors(sc);
+		if (ret) {
+			hid_err(sc->hdev,
+			"Unable to initialize motion sensors: %d\n", ret);
+			goto err_stop;
+		}
+
+		sony_init_output_report(sc, sixaxis_send_output_report);
+	} else if (sc->quirks & DUALSHOCK4_CONTROLLER) {
+		ret = dualshock4_get_calibration_data(sc);
+		if (ret < 0) {
+			hid_err(hdev, "Failed to get calibration data from Dualshock 4\n");
+			goto err_stop;
+		}
+
+		/*
+		 * The Dualshock 4 touchpad supports 2 touches and has a
+		 * resolution of 1920x942 (44.86 dots/mm).
+		 */
+		ret = sony_register_touchpad(sc, 2, 1920, 942);
+		if (ret) {
+			hid_err(sc->hdev,
+			"Unable to initialize multi-touch slots: %d\n",
+			ret);
+			goto err_stop;
+		}
+
+		ret = sony_register_sensors(sc);
+		if (ret) {
+			hid_err(sc->hdev,
+			"Unable to initialize motion sensors: %d\n", ret);
+			goto err_stop;
+		}
+
+		if (sc->quirks & DUALSHOCK4_CONTROLLER_BT) {
+			sc->ds4_bt_poll_interval = DS4_BT_DEFAULT_POLL_INTERVAL_MS;
+			ret = device_create_file(&sc->hdev->dev, &dev_attr_bt_poll_interval);
+			if (ret)
+				hid_warn(sc->hdev,
+				 "can't create sysfs bt_poll_interval attribute err: %d\n",
+				 ret);
+		}
+
+		if (sc->quirks & DUALSHOCK4_DONGLE) {
+			INIT_WORK(&sc->hotplug_worker, dualshock4_calibration_work);
+			sc->hotplug_worker_initialized = 1;
+			sc->ds4_dongle_state = DONGLE_DISCONNECTED;
+		}
+
+		sony_init_output_report(sc, dualshock4_send_output_report);
+	} else if (sc->quirks & MOTION_CONTROLLER) {
+		sony_init_output_report(sc, motion_send_output_report);
+	} else {
+		ret = 0;
+	}
+
+	if (sc->quirks & SONY_LED_SUPPORT) {
+		ret = sony_leds_init(sc);
+		if (ret < 0)
+			goto err_stop;
+	}
+
+	if (sc->quirks & SONY_BATTERY_SUPPORT) {
+		ret = sony_battery_probe(sc, append_dev_id);
+		if (ret < 0)
+			goto err_stop;
+
+		/* Open the device to receive reports with battery info */
+		ret = hid_hw_open(hdev);
+		if (ret < 0) {
+			hid_err(hdev, "hw open failed\n");
+			goto err_stop;
+		}
+	}
+
+	if (sc->quirks & SONY_FF_SUPPORT) {
+		ret = sony_init_ff(sc);
+		if (ret < 0)
+			goto err_close;
+	}
+
+	return 0;
+err_close:
+	hid_hw_close(hdev);
+err_stop:
+	/* Piggy back on the default ds4_bt_ poll_interval to determine
+	 * if we need to remove the file as we don't know for sure if we
+	 * executed that logic.
+	 */
+	if (sc->ds4_bt_poll_interval)
+		device_remove_file(&sc->hdev->dev, &dev_attr_bt_poll_interval);
+	if (sc->quirks & SONY_LED_SUPPORT)
+		sony_leds_remove(sc);
+	if (sc->quirks & SONY_BATTERY_SUPPORT)
+		sony_battery_remove(sc);
+	if (sc->touchpad)
+		sony_unregister_touchpad(sc);
+	if (sc->sensor_dev)
+		sony_unregister_sensors(sc);
+	sony_cancel_work_sync(sc);
+	kfree(sc->output_report_dmabuf);
+	sony_remove_dev_list(sc);
+	sony_release_device_id(sc);
+	hid_hw_stop(hdev);
+	return ret;
+}
+
 static int sony_probe(struct hid_device *hdev, const struct hid_device_id *id)
 {
 	int ret;
@@ -2781,7 +3105,6 @@ static void sony_remove(struct hid_device *hdev)
 	struct sony_sc *sc = hid_get_drvdata(hdev);
 
 	hid_hw_close(hdev);
-
 	if (sc->quirks & SONY_LED_SUPPORT)
 		sony_leds_remove(sc);
 

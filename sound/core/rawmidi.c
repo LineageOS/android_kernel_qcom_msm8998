@@ -1086,6 +1086,7 @@ static ssize_t snd_rawmidi_read(struct file *file, char __user *buf, size_t coun
 		buf += count1;
 		count -= count1;
 	}
+
 	return result;
 }
 

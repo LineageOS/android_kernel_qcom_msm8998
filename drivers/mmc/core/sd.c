@@ -1211,6 +1211,12 @@ static void mmc_sd_detect(struct mmc_host *host)
 	BUG_ON(!host);
 	BUG_ON(!host->card);
 
+    #ifdef CONFIG_MMC_BLOCK_DEFERRED_RESUME 
+    if (mmc_bus_needs_resume(host)) 
+        mmc_resume_bus(host); 
+    #endif 
+    mmc_power_up(host, host->ocr_avail);
+    
 	/*
 	 * Try to acquire claim host. If failed to get the lock in 2 sec,
 	 * just return; This is to ensure that when this call is invoked
@@ -1306,7 +1312,7 @@ out:
 static int mmc_sd_suspend(struct mmc_host *host)
 {
 	int err;
-
+    
 	MMC_TRACE(host, "%s: Enter\n", __func__);
 	err = _mmc_sd_suspend(host);
 	if (!err) {
@@ -1317,7 +1323,7 @@ static int mmc_sd_suspend(struct mmc_host *host)
 		host->ignore_bus_resume_flags = true;
 
 	MMC_TRACE(host, "%s: Exit err: %d\n", __func__, err);
-
+    
 	return err;
 }
 
@@ -1394,7 +1400,6 @@ out:
 static int mmc_sd_resume(struct mmc_host *host)
 {
 	int err = 0;
-
 	MMC_TRACE(host, "%s: Enter\n", __func__);
 	if (!(host->caps & MMC_CAP_RUNTIME_RESUME)) {
 		err = _mmc_sd_resume(host);
@@ -1569,6 +1574,7 @@ err:
 
 	pr_err("%s: error %d whilst initialising SD card\n",
 		mmc_hostname(host), err);
+	printk ("BBox::UEC; 43::3\n");
 
 	return err;
 }

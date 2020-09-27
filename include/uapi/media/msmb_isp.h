@@ -27,14 +27,20 @@
 #define VFE_HW_LIMIT 1
 #define ISP_KERNEL_STATE 1
 
-struct msm_vfe_cfg_cmd_list;
-
 struct isp_kstate {
 	uint32_t kernel_sofid;
 	uint32_t drop_reconfig;
 	uint32_t vfeid;
 	uint32_t dual_cam_drop_detected;
 	uint32_t dual_cam_drop;
+};
+
+struct msm_vfe_cfg_cmd_list;
+
+struct isp_proc {
+	uint32_t  kernel_sofid;
+	uint32_t  vfeid;
+	uint32_t  drop_reconfig;
 };
 
 enum ISP_START_PIXEL_PATTERN {
