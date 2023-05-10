@@ -39,6 +39,23 @@
       "message": "stumbled upon these by accident. at least the one in msm_camera_dt_util.c seems worth fixing?",
       "revId": "182c609cd25c17e54f9f37606338f17c1994e6fe",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd767c3b_cbe62704",
+        "filename": "drivers/media/platform/msm/camera_v2/sensor/io/msm_camera_dt_util.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-05-10T16:02:59Z",
+      "side": 1,
+      "message": "I would prefer this is split to its own change",
+      "revId": "182c609cd25c17e54f9f37606338f17c1994e6fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
