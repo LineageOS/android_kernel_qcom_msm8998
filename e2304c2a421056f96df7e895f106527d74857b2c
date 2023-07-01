@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90856ab3_a05da9df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-07-01T21:19:06Z",
+      "side": 1,
+      "message": "so this is the basics for EAS to work. unless enabled it shouldnt have an effect on any of our qcom-common users, but it\u0027d help for oneplus and fxtec",
+      "revId": "e2304c2a421056f96df7e895f106527d74857b2c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
