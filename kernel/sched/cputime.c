@@ -81,8 +81,11 @@ void irqtime_account_irq(struct task_struct *curr)
 	irq_time_write_end();
 
 	if (account) {
+#ifdef CONFIG_SCHED_WALT
 		walt_account_irqtime(cpu, curr, delta, wallclock);
+#else
 		sched_account_irqtime(cpu, curr, delta, wallclock);
+#endif
 	} else if (curr != this_cpu_ksoftirqd())
 		sched_account_irqstart(cpu, curr, wallclock);
 
