@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfa7a75_02cfedfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-10-27T16:22:44Z",
+      "side": 1,
+      "message": "Georg, can you check if this chain is clang-17 error free with your device or if there\u0027s more to add?",
+      "revId": "3278f9e947e77e3d51c433333bf200e043f2b839",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
