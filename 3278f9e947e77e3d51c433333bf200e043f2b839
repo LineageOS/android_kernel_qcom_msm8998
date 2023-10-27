@@ -16,6 +16,24 @@
       "message": "Georg, can you check if this chain is clang-17 error free with your device or if there\u0027s more to add?",
       "revId": "3278f9e947e77e3d51c433333bf200e043f2b839",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fbdac89_89395c8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32181
+      },
+      "writtenOn": "2023-10-27T16:43:05Z",
+      "side": 1,
+      "message": "These two commits are also needed, they are for reference only:\nhttps://github.com/Nanhumly-Staging/android_kernel_xiaomi_msm8998/commit/ee3b289c9f0db7fe70c061eeff4d7ab529ecac45\nhttps://github.com/Nanhumly-Staging/android_kernel_xiaomi_msm8998/commit/2d9b349303d448a3ad564704c88e285ce9e4e96d\nVerified and boot on my Xiaomi msm8998.",
+      "parentUuid": "ddfa7a75_02cfedfd",
+      "revId": "3278f9e947e77e3d51c433333bf200e043f2b839",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
