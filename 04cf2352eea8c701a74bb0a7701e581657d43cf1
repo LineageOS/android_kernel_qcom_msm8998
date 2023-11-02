@@ -16,6 +16,23 @@
       "message": "guys, do we want to merge this chain into lineage-20 and then create a 21 branch, or merge them all to 21?",
       "revId": "04cf2352eea8c701a74bb0a7701e581657d43cf1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8289431_a3e0def4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-02T09:43:47Z",
+      "side": 1,
+      "message": "(i can create the branch and move the commits, np)",
+      "revId": "04cf2352eea8c701a74bb0a7701e581657d43cf1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
