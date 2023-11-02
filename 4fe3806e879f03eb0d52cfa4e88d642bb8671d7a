@@ -16,6 +16,23 @@
       "message": "i +1ed the tip of this chain",
       "revId": "4fe3806e879f03eb0d52cfa4e88d642bb8671d7a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df33638_6c9cfcd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-02T08:52:58Z",
+      "side": 1,
+      "message": "bruno: verified the chain, added missing commits",
+      "revId": "4fe3806e879f03eb0d52cfa4e88d642bb8671d7a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
