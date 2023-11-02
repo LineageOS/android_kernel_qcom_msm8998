@@ -68,6 +68,24 @@
       "message": "I would also pick https://github.com/Mi5Devs/android_kernel_xiaomi_msm8996/commit/01133dd02b4b77b48149547c012ed3a024ad12b0 as part of bpf missing commits (even tho nothing is apparently breaking without it) and https://github.com/Mi5Devs/android_kernel_xiaomi_msm8996/commit/3ce06e0d31949d615eb22ae9038cfafa6e4676cb which is needed for compressed APEX support.",
       "revId": "04cf2352eea8c701a74bb0a7701e581657d43cf1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a49387a_64ffa7ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-02T10:00:01Z",
+      "side": 1,
+      "message": "done. also picked some more so the patches would apply cleanly",
+      "parentUuid": "d9a960ea_c17b0a5e",
+      "revId": "04cf2352eea8c701a74bb0a7701e581657d43cf1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
