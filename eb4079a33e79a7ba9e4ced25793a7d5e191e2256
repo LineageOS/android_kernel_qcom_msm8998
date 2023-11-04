@@ -16,6 +16,24 @@
       "message": "i may be understanding this wrong, but 830218c1add1da16519b71909e5cf21522b7d062 upstream doesn\u0027t contain this code, deb4d858377e4a19d28697a553f8e39fa16fbbd8 does?",
       "revId": "eb4079a33e79a7ba9e4ced25793a7d5e191e2256",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3b71dee_39a7c723",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-04T09:13:04Z",
+      "side": 1,
+      "message": "Are you referring to the difference of this to the original upstream commit, i.e. \"u32 tb_id \u003d l3mdev_fib_table(dev) ? : addrconf_rt_table(dev, RT6_TABLE_INFO);\" vs \"u32 tb_id \u003d l3mdev_fib_table(dev) ? : RT6_TABLE_INFO;\"?\n\nThe difference comes from the point that the upstream commit 830218c1add1 was done without 6dd69fdc001f7. The commit deb4d858377 is basically 6dd69fdc001f7 however took the changes from 830218c1add1 into account (see the commit message).\n\nIn our branch we have 4265b90578735 reverting 09d96c8d1bd (\"net: ipv6: Fix processing of RAs in presence of VRF\") after which 6dd69fdc001f7 applied cleanly but we lost that fix. My CR here should reintroduce this such that we get to a similar, if not even better state as deb4d858377:\nOur functions take only `struct net_device*` as a parameter not both `struct net_device*` AND `struct net*` which is a change done in 6dd69fdc001f7 as the latter can be easily retrieved from the former (but not vice-versa). See in that commit:\n-       table \u003d fib6_get_table(net, RT6_TABLE_INFO);\n+       table \u003d fib6_get_table(dev_net(dev),\n+                              addrconf_rt_table(dev, RT6_TABLE_INFO));\n\nThis conflict was resolved differently in deb4d858377 keeping the `dev` and the `net` parameter which I didn\u0027t want to reintroduce as it is not required.\n\nAnyway: Many thanks for digging out deb4d858377e4a19d28697a553f8e39fa16fbbd8. Comparing my changes against the state in that commit makes me certain that mine are correct.\n\nDiffing this against deb4d858377e4a19d28697a553f8e39fa16fbbd8 shows only 2 relevant differences:\n1) In rt6_get_dflt_router\n-       u32 tb_id \u003d l3mdev_fib_table(dev) ? : addrconf_rt_table(dev, RT6_TABLE_MAIN);\n+       u32 tb_id \u003d l3mdev_fib_table(dev) ? : addrconf_rt_table(dev, RT6_TABLE_DFLT);\n\nHere the latter (mine) is correct as can be seen in rt6_add_dflt_router (although we have `#define RT6_TABLE_DFLT RT6_TABLE_MAIN` so it doesn\u0027t matter)\n\n2) In rt6_add_dflt_router RT6_TABLE_HAS_DFLT_ROUTER isn\u0027t set in my changes, however it is actually superflous as it is never read in deb4d858377e4 due to `fib6_clean_all` as mentioned initially.\n\nSorry for the long answer, I hope that it was understandable and I\u0027m not mislead at some point.",
+      "parentUuid": "b05fbc20_e64927a2",
+      "revId": "eb4079a33e79a7ba9e4ced25793a7d5e191e2256",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
