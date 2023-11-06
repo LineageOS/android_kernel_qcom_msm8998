@@ -16,6 +16,24 @@
       "message": "alex, would you mind posting these changes of yours in a chain? that would make it much easier to check them without missing something, and reduce the times we need to take a look",
       "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afd00393_fe3127cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-06T14:54:14Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand. Currently I push those independent changes separately and as I find them. So if one is wrong or needs discussion it won\u0027t block the others. And Gerrit keeps track of them. Only the wireguard update consists of multiple commits on top of each other (is that what you meant by \"in a chain\"?) and in an own topic.\nDo you prefer to submit all/most changes from 1 branch? There might be more changes coming any time while I work through hundreds of merge conflicts and I thought I\u0027ll submit ASAP what I already found instead of waiting till I\u0027m done and submitting a large amount of changes. \n\nBtw: what about the 18/19 branches? I actually found those while trying to merge my local and the lineage-18.1 branch but only the 20 seems to have activity on Gerrit. Hence me pushing that to 20.",
+      "parentUuid": "ea7719e1_238254e6",
+      "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
