@@ -33,6 +33,24 @@
       "message": "@Nolen, don\u0027t bother merging this into fxtec kernel since apparently we already had this...",
       "revId": "9f9dff79a3b47de03b5c05a6a146f1956f43f738",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3a34de_aadbbd1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-06T15:02:54Z",
+      "side": 1,
+      "message": "Oh so something was wrong with that set of changes? What exactly was the issue and how can I avoid that? I\u0027m actually using the raw git commands as my repo checkout has a different upstream, so I\u0027m doing that in a worktree and assumed git/Gerrit would figure out dependent commits, doesn\u0027t it?",
+      "parentUuid": "38dc24e7_7ea3a337",
+      "revId": "9f9dff79a3b47de03b5c05a6a146f1956f43f738",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
