@@ -34,6 +34,24 @@
       "parentUuid": "ea7719e1_238254e6",
       "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32102b5a_f5428dc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-06T14:59:43Z",
+      "side": 1,
+      "message": "The devices that actively merge this common kernel are all running LineageOS 20.0, that\u0027s why lineage-20 is the active one.",
+      "parentUuid": "afd00393_fe3127cd",
+      "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
