@@ -52,6 +52,23 @@
       "parentUuid": "afd00393_fe3127cd",
       "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "797e21f6_3128f452",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-07T21:05:44Z",
+      "side": 1,
+      "message": "yeah, on top of each other is what i mean by chain. unless you mean to merge only this one, cause afaics you added me only to this one, so never quite sure which ones you deem ready. lots of people upload commits that are either not ready to be reviewed/merged.\nso ideally, post them in a chain (or add a topic, or add reviewers to all of the commits you want to get merged), and the ones you think are ready should at least get a verified+1 from you, then we know we can take a look at them. rebasing them or picking them out of a chain is not a problem.",
+      "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
