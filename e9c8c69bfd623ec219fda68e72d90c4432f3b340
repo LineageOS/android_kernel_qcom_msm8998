@@ -68,6 +68,24 @@
       "message": "me too, actually. but i was too stupid to notice i +1ed the wrong commit ...",
       "revId": "e9c8c69bfd623ec219fda68e72d90c4432f3b340",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0ac89a1_5d6a6798",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-11-08T21:09:07Z",
+      "side": 1,
+      "message": "it seems happier with fsverity in fstab, but idk if that\u0027s correct.",
+      "parentUuid": "0137a1b6_fc16f487",
+      "revId": "e9c8c69bfd623ec219fda68e72d90c4432f3b340",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
