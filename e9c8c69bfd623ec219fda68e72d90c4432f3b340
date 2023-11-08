@@ -86,6 +86,23 @@
       "parentUuid": "0137a1b6_fc16f487",
       "revId": "e9c8c69bfd623ec219fda68e72d90c4432f3b340",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2904d114_dbeb2dc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-08T21:44:38Z",
+      "side": 1,
+      "message": "that\u0027s the actual improvement i think. what lead to this was missing ioctls, that logspam is gone even without enabling fsverity. but it could never hurt to enable it properly",
+      "revId": "e9c8c69bfd623ec219fda68e72d90c4432f3b340",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
