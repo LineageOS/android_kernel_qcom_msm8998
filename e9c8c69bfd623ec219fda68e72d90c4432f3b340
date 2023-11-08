@@ -51,6 +51,23 @@
       "parentUuid": "c2377038_4c571637",
       "revId": "e9c8c69bfd623ec219fda68e72d90c4432f3b340",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "487904e7_1418186c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-08T20:58:00Z",
+      "side": 1,
+      "message": "me too, actually. but i was too stupid to notice i +1ed the wrong commit ...",
+      "revId": "e9c8c69bfd623ec219fda68e72d90c4432f3b340",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
