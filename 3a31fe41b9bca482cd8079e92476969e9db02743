@@ -16,6 +16,24 @@
       "message": "please retain the original commit metadata",
       "revId": "3a31fe41b9bca482cd8079e92476969e9db02743",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6f1838_b22500ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-09T07:12:07Z",
+      "side": 1,
+      "message": "This isn\u0027t an upstream commit as all relevant upstream commits are already merged into this branch. This is my fix to a bug introduced by a merge with my explanation to why those lines need to be re-added after they were removed by the merge. So I thought the best would be to not pretend it to be the same upstream commit again and use the commit message instead to provide proper reasoning for future reference.\nThe original author of those 2 lines would be the one of 01b6ca65e10f2 but given that I verified those are required at these places and manually re-added them (not cherry-pick a whole commit) even in light of conflicts that makes me the author of this change similar to if that was a revert commit where the author is different to that of possible additions.\n\nDoes that make sense or what should I \nchange/add exactly? As you can see I was already unsure about the best action here.",
+      "parentUuid": "55a7e67b_318b8190",
+      "revId": "3a31fe41b9bca482cd8079e92476969e9db02743",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
