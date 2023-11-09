@@ -69,6 +69,24 @@
       "message": "yeah, on top of each other is what i mean by chain. unless you mean to merge only this one, cause afaics you added me only to this one, so never quite sure which ones you deem ready. lots of people upload commits that are either not ready to be reviewed/merged.\nso ideally, post them in a chain (or add a topic, or add reviewers to all of the commits you want to get merged), and the ones you think are ready should at least get a verified+1 from you, then we know we can take a look at them. rebasing them or picking them out of a chain is not a problem.",
       "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c055c21_0f2495b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-09T18:25:42Z",
+      "side": 1,
+      "message": "Alright, I rebased all changes and compile tested them again.\nI didn\u0027t meant to merge only this one. IIRC Gerrit automatically added you here so I thought that it is all automated and I shouldn\u0027t manually add someone else.\nAnyway the chain should now be ready.",
+      "parentUuid": "797e21f6_3128f452",
+      "revId": "8c879a1ba4c2072f07db88cccdc9e32afb9e917a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
