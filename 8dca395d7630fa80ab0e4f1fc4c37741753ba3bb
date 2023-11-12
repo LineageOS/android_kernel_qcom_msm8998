@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56231e50_cbcc13a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-12T18:12:55Z",
+      "side": 1,
+      "message": "Stumpled upon this due to a conflict in my local tree related to change Ifb111e4313a1ba5cb67f298064c56c6593802d0b\nIt basically reverts parts of a CAF commit combining it with an AOSP commit after seemingly an attempt to fixup after an issue due to a conflict resolution may lead to a regression with EAS when the HMP scheduler isn\u0027t used.\nI\u0027m pretty sure this change here is correct but please double-check. Don\u0027t mind the large-looking diff, it mostly moves some code from the top next to the alternative code further down such that they are next to each other and guarded by the same `CONFIG_SMP` check mirroring the header",
+      "revId": "8dca395d7630fa80ab0e4f1fc4c37741753ba3bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
