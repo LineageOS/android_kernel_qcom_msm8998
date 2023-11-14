@@ -16,6 +16,23 @@
       "message": "this is the same case of retaining metadata. refer to the other comment",
       "revId": "30b450fc1cad48d881cb3163cb58ed31435e607d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1c7e517_d710dfd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-14T22:04:16Z",
+      "side": 1,
+      "message": "metadata case closed, the change itself seems sound. thanks for the submission, i will be running this for a bit",
+      "revId": "30b450fc1cad48d881cb3163cb58ed31435e607d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
