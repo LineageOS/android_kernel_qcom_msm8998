@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c994cb_0b4effc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-14T21:53:16Z",
+      "side": 1,
+      "message": "personally, i would still prefer to retain the original author, unless you wrote the 2 lines yourself. yeah i know, seems a bit nitpicky :) anyway, adding bruno, he will make the decision",
+      "revId": "1d2e8eaf169ab964769ecee9debe536ee6342eaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
