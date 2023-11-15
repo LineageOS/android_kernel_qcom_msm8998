@@ -16,6 +16,24 @@
       "message": "that should not be part of the revert, this wasn\u0027t there before the commit we are reverting here. where does it come from?",
       "revId": "05145446909ee777a4dd20600a5074a0031c3f3f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cd14db2_50fcf42f",
+        "filename": "sound/core/rawmidi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-11-15T17:38:51Z",
+      "side": 1,
+      "message": "It has to be here for correctness: We lock the mutex in line 984 and need to unlock it before returning.\nPreviously this was done (line 1030|1016) below the \"out\" label which was introduced by the commit being reverted. When replacing the \"goto out;\" by a return in the revert we still need to unlock the mutex which was introduced in 742017e8de6a8d221470ced85a2a481e89b9719d AFTER the commit being reverted. Hence it couldn\u0027t have been there before the commit we are reverting. So this added line is similar to a resolution of a conflict",
+      "parentUuid": "296b858a_888815ff",
+      "revId": "05145446909ee777a4dd20600a5074a0031c3f3f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
