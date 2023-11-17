@@ -33,6 +33,23 @@
       "message": "@nolen: could you check this on moto8998 or another device where we don\u0027t enable eas? i dont remember which one we used last time ... duh",
       "revId": "8dca395d7630fa80ab0e4f1fc4c37741753ba3bb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31db6d77_fb0edbca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-11-17T16:58:44Z",
+      "side": 1,
+      "message": "fine on pro1 and moto8998 (couldn\u0027t pick the 3 rawmidi patches on moto8998 due to missing commits prior in history but that\u0027s not what we\u0027re worried about, it\u0027s the schedule test cases).",
+      "revId": "8dca395d7630fa80ab0e4f1fc4c37741753ba3bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
