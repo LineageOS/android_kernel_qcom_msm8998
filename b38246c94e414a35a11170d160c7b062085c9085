@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b2ad3ef_49924087",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-11-19T22:35:19Z",
+      "side": 1,
+      "message": "this is the 8998 common kernel, so far no troubles for any 8998 i know of.\n\nlge 8996 problems dont warrant a revert for everyone,you can just revert that patch there. we had to revert plenty of camera patches for op8998 locally , for example.",
+      "revId": "b38246c94e414a35a11170d160c7b062085c9085",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
