@@ -16,6 +16,23 @@
       "message": "@Georg: Can you double check this? Similarly to CVE-2023-33063 this CVE fix is in the Dec ASB. It is pretty much a follow-up to a fix from June 2023 which also isn\u0027t present here yet: https://review.lineageos.org/c/LineageOS/android_kernel_qcom_msm8998/+/377888\n\nIt revolves around returning stale data from kernel space unintentionally. Might have been even an information disclosure vulnerability, but can\u0027t find the relevant entry.\n\nSimilar here the other CRs in this topic are requirements of this picking all the patches changing this part of the code.",
       "revId": "003f2026ba356ff7985c2e543bbfbd210e2215c7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ceb1a8_1621d7d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-12-29T13:37:56Z",
+      "side": 1,
+      "message": "seems alright to me, nice one - i\u0027m giving it a few more days tho",
+      "revId": "003f2026ba356ff7985c2e543bbfbd210e2215c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
