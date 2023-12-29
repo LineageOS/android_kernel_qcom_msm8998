@@ -16,6 +16,23 @@
       "message": "@Georg: Can you double check this? CVE-2023-33063 is in the Dec ASB. Although it would apply (almost) cleanly I checked the code logic and found missing locking without which that change would introduce races in that newly added ref counter.\n\nSo I picked the relevant other patches to make the last one apply cleanly and make sense given the locking used. I grouped them into a topic to make it visible that those others are basically a precondition for the CVE fix.",
       "revId": "1f5e1652174f8c66c94b37fdf5fa2a43fe246650",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9be94b2_c2da2bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-12-29T13:37:50Z",
+      "side": 1,
+      "message": "seems alright to me, nice one - i\u0027m giving it a few more days tho",
+      "revId": "1f5e1652174f8c66c94b37fdf5fa2a43fe246650",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
