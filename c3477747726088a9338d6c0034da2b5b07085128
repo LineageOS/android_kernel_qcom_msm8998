@@ -16,6 +16,24 @@
       "message": "alex, you should mark this with BACKPORT:\nalso, what exactly does this topic fix (i mean all this, except sched/fair)?",
       "revId": "c3477747726088a9338d6c0034da2b5b07085128",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828aac07_3046dfd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2024-03-03T20:32:04Z",
+      "side": 1,
+      "message": "The actual fix of this topic is in the 2 Bluetooth patches fixing an OOB read (hdev-\u003ename could be less than 8 chars). The first fix introduced another OOB (write IIRC) issue which the 2nd fixes. The string-patches are required for the 2nd fix. I also submitted this patchset to CIP with those commit messages (except the Change-Id of course)\n\nShall I still change the titles? I mean pretty much any commit to this kernel is a backport as 4.4 doesn\u0027t get any updates/fixes from upstream, so I don\u0027t see a reason to add that prefix.",
+      "parentUuid": "9513a679_535391fa",
+      "revId": "c3477747726088a9338d6c0034da2b5b07085128",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
