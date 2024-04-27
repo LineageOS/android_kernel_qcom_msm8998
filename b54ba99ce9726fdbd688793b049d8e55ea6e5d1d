@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e20604c_d7c9422a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-04-27T17:07:34Z",
+      "side": 1,
+      "message": "Are you sure the USB failure you experienced is not due to mismerges in the first place? \n\nThe following commits are not fully applied before this revert.\n\n* https://github.com/LineageOS/android_kernel_qcom_msm8998/commit/45de3288df73ef650eb0ecaba5f786e611685243\n\n* https://github.com/LineageOS/android_kernel_qcom_msm8998/commit/2ec791e9db4dbc3caff74c1c78875e2c2376eb74",
+      "revId": "b54ba99ce9726fdbd688793b049d8e55ea6e5d1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
