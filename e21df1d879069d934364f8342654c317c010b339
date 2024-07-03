@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f50f90_82e30496",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31496
+      },
+      "writtenOn": "2024-07-03T18:05:09Z",
+      "side": 1,
+      "message": "Doesn\u0027t enabling `VFAT_FS` override the `default y`?\n\nFeels like a bit of a nuclear solution to remove the config entirely",
+      "revId": "e21df1d879069d934364f8342654c317c010b339",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
