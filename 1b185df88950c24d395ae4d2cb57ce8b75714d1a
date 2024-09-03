@@ -16,6 +16,23 @@
       "message": "it\u0027s for GKI, not needed on older kernels",
       "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e741bd2d_40df3dba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-09-03T17:32:44Z",
+      "side": 1,
+      "message": "but it also doesnt hurt",
+      "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
