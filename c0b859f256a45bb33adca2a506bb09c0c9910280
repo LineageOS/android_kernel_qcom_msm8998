@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af8d940_045f037f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-09-05T21:43:44Z",
+      "side": 1,
+      "message": "The commit that this change fixes is only present on 4.6+ kernels, therefore this CVE does not apply to msm8998",
+      "revId": "c0b859f256a45bb33adca2a506bb09c0c9910280",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
