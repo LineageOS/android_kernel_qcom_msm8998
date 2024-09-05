@@ -33,6 +33,24 @@
       "message": "but it also doesnt hurt",
       "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c17b94_e45b2640",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2024-09-05T08:31:09Z",
+      "side": 1,
+      "message": "Keeping the ABI break might make it more obvious if the new API was missed somewhere at compile time. Although it might cause minor conflicts with further patches.\nI think I\u0027d drop this one though.",
+      "parentUuid": "e741bd2d_40df3dba",
+      "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
