@@ -16,6 +16,24 @@
       "message": "The commit that this change fixes is only present on 4.6+ kernels, therefore this CVE does not apply to msm8998",
       "revId": "c0b859f256a45bb33adca2a506bb09c0c9910280",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8df8c9_5ccc2c51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2024-09-08T12:16:49Z",
+      "side": 1,
+      "message": "While the referenced commit is not present the description in the message seems to still apply. I followed the logic in the 2 code paths and the order is indeed different. So I think it should still be the same even if the CVE was not triggered in the same way as in the newer kernel. Especially as I can not tell for sure the CVE or something similar does not exist and I guess this old kernel wasn\u0027t checked for it",
+      "parentUuid": "3af8d940_045f037f",
+      "revId": "c0b859f256a45bb33adca2a506bb09c0c9910280",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
