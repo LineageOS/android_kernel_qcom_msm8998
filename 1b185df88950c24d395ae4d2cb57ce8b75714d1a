@@ -68,6 +68,41 @@
       "message": "alex, youre +1ing it and saying you\u0027d drop it? your communication could be less confusing ;)",
       "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5102ecc8_61d1281c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2024-10-13T07:58:03Z",
+      "side": 1,
+      "message": "I see, sorry for that. I added it for it being in the ASB but after Alexanders comment and your \"doesn\u0027t hurt\" I found a benefit in dropping. I just didn\u0027t remove the +1 I added earlier as I\u0027m not fully sure about them: the code is correct and I verified it works which seemed to me independent of whether I personally would include it or not given the case is not so clear",
+      "parentUuid": "fe790ddc_1b4c8552",
+      "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "469a43b3_ab3d3ac1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2024-10-13T07:58:03Z",
+      "side": 1,
+      "message": "Change is correct but as this is not a GKI and the ABI change is still compatible we don\u0027t need this patch and without are better able to detect wrong function signatures",
+      "revId": "1b185df88950c24d395ae4d2cb57ce8b75714d1a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
