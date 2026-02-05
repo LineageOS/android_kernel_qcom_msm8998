@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe491469_2bab87ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35755
+      },
+      "writtenOn": "2026-02-05T07:11:05Z",
+      "side": 1,
+      "message": "Hi, with this cred back port, my Nokia PL2 fails to boot with crash at nokia logo and empty pstore also i dont think there is any need for cred_getsecid on k4.4.",
+      "revId": "721d9c7694653cb80f521714e7660f7039e9a088",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
