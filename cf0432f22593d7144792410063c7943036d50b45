@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "969ef361_dce530db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 37705
+      },
+      "writtenOn": "2026-08-13T18:46:44Z",
+      "side": 1,
+      "message": "This specific patch should probably not be merged. It was reverted upstream, see https://lore.kernel.org/all/20260701131150.0Ijhq4Dw@linutronix.de",
+      "revId": "cf0432f22593d7144792410063c7943036d50b45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
